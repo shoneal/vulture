@@ -1,0 +1,302 @@
+:root {
+  --color: black;
+  --border: black;
+  --background-color: white;
+  --line: #bdbdbd;
+  --time: #5a5a5a;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+h1,
+h2,
+h3,
+p,
+ul,
+li,
+a {
+  margin: 0;
+  padding: 0;
+}
+
+ul,
+li,
+a {
+  color: currentColor;
+  text-decoration: none;
+  list-style: none;
+}
+
+img,
+picture,
+svg,
+video {
+  display: block;
+  pointer-events: none;
+}
+
+body {
+  margin: 0;
+  border: 1px solid tomato;
+  padding: 0;
+  background-color: var(--background-color);
+}
+
+.top {
+  padding: 10px 0 30px;
+}
+
+.top-logo {
+  width: auto;
+  height: 25px;
+  margin: 4px auto 0;
+  padding: 0 20px;
+  fill: var(--color);
+}
+
+.page-header {
+  position: sticky;
+  top: 0;
+  z-index: 9001;
+  display: flex;
+  height: 65px;
+  border-bottom: 1px solid var(--background-color);
+  padding: 6px 0 0;
+  background: var(--background-color);
+}
+
+.page-sticky-header {
+  align-items: center;
+  border-bottom-color: var(--line);
+  padding: 0;
+}
+
+.logo {
+  display: block;
+  width: 235px;
+  margin: 0 auto;
+  transition: width 0.1s ease;
+  cursor: pointer;
+}
+
+.page-sticky-header .logo {
+  width: 135px;
+}
+
+.logo svg {
+  fill: #010101;
+}
+
+.wrapper {
+  margin: 50px 0 0;
+  border: 1px solid black;
+}
+
+.article-header {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  width: 1140px;
+  margin: 0 auto 40px;
+}
+
+.lede-wrapper {
+  border-left: 12px solid var(--border);
+  padding: 25px 70px;
+}
+
+.special-feature {
+  margin: 0 0 24px;
+  font:
+    14px/1.2 "Elderkin",
+    "Arial Narrow",
+    Arial,
+    sans-serif;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.headline-primary {
+  display: inline;
+  font:
+    54px/1 "Elderkin",
+    "Arial Narrow",
+    Arial,
+    sans-serif;
+}
+
+.display-teaser {
+  display: inline;
+  font:
+    300 49px/50px "Miller Display",
+    Georgia,
+    serif;
+  letter-spacing: -0.015em;
+}
+
+.author-container {
+  margin: 13px 0 0;
+  font:
+    italic 13px/1.34 "Miller Text",
+    Georgia,
+    serif;
+  letter-spacing: 0.75px;
+}
+
+.article-timestamp {
+  display: inline-block;
+  width: 100%;
+  margin: 12px 0 0;
+  border-top: 1px solid var(--line);
+  padding: 12px 0 0;
+}
+
+.article-timestamp {
+  margin: 15px 0 0;
+  padding: 10px 0 0;
+  color: var(--time);
+  font:
+    11px/13px "Miller Text",
+    Georgia,
+    serif;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.lede-image-wrapper {
+  position: relative;
+  padding-bottom: calc((712 / 570) * 100%);
+}
+
+.video {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.paragraph {
+  width: 600px;
+  margin: 0 auto 20px;
+  font:
+    18px/1.5 "Miller Text",
+    Georgia,
+    serif;
+}
+
+.paragraph:first-letter {
+  float: left;
+  margin-bottom: -10px;
+  padding: 6px 10px 0 0;
+  padding-top: 9px;
+  font:
+    5em/0.8em "Elderkin",
+    "Arial Narrow",
+    Arial,
+    sans-serif;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .article-author:hover {
+    box-shadow: 0 1px 0 #00bcf1;
+  }
+}
+
+@media (prefers-color-scheme: dark), .dark-theme {
+  :root {
+    --color: white;
+    --border: #696969;
+    --background-color: #121212;
+    --line: #696969;
+    --time: #b0b0b0;
+  }
+
+  .logo svg {
+    fill: var(--color);
+  }
+}
+
+@media screen and (max-width: 1180px) {
+  .top {
+    margin: 0 20px;
+    padding: 10px 0;
+  }
+
+  .top-logo {
+    margin: 0 auto;
+    padding: 0;
+  }
+
+  .wrapper {
+    margin: 0;
+    padding: 0 7vw;
+  }
+
+  .article-header {
+    display: flex;
+    flex-direction: column-reverse;
+    width: 100%;
+    margin: 0 auto 24px;
+  }
+
+  .lede-wrapper {
+    border-top: 12px solid var(--border);
+    border-bottom: 1px solid var(--line);
+    border-left: none;
+    padding: 12px 0;
+  }
+
+  .headline-primary {
+    font:
+      46px/1 "Elderkin",
+      "Arial Narrow",
+      Arial,
+      sans-serif;
+  }
+
+  .display-teaser {
+    font:
+      300 41px/42px "Miller Display",
+      Georgia,
+      serif;
+    letter-spacing: -0.01em;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .top-logo {
+    height: 20px;
+  }
+
+  .wrapper {
+    padding: 0 20px;
+  }
+
+  .special-feature {
+    margin: 0 0 12px;
+  }
+
+  .headline-primary {
+    font:
+      42px/1 "Elderkin",
+      "Arial Narrow",
+      Arial,
+      sans-serif;
+  }
+
+  .display-teaser {
+    font:
+      300 36px/37px "Miller Display",
+      Georgia,
+      serif;
+  }
+
+  .paragraph {
+    width: 100%;
+  }
+}
