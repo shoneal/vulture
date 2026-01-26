@@ -41,7 +41,6 @@ video {
 
 body {
   margin: 0;
-  border: 1px solid tomato;
   padding: 0;
   background-color: var(--background-color);
 }
@@ -92,8 +91,7 @@ body {
 }
 
 .wrapper {
-  margin: 50px 0 0;
-  border: 1px solid black;
+  margin: 50px 0 40px;
 }
 
 .article-header {
@@ -110,39 +108,25 @@ body {
 
 .special-feature {
   margin: 0 0 24px;
-  font:
-    600 14px/1.2 "Elderkin",
-    "Arial Narrow",
-    Arial,
-    sans-serif;
+  font: 600 14px/1.2 "Elderkin", "Arial Narrow", Arial, sans-serif;
   letter-spacing: 2px;
   text-transform: uppercase;
 }
 
 .headline-primary {
   display: inline;
-  font:
-    600 54px/1 "Elderkin",
-    "Arial Narrow",
-    Arial,
-    sans-serif;
+  font: 600 54px/1 "Elderkin", "Arial Narrow", Arial, sans-serif;
 }
 
 .display-teaser {
   display: inline;
-  font:
-    300 49px/50px "Miller Display",
-    Georgia,
-    serif;
+  font: 300 49px/50px "Miller Display", Georgia, serif;
   letter-spacing: -0.015em;
 }
 
 .author-container {
   margin: 13px 0 0;
-  font:
-    italic 13px/1.34 "Miller Text",
-    Georgia,
-    serif;
+  font: italic 13px/1.34 "Miller Text", Georgia, serif;
   letter-spacing: 0.75px;
 }
 
@@ -154,14 +138,9 @@ body {
   padding: 12px 0 0;
 }
 
-.article-timestamp {
-  margin: 15px 0 0;
-  padding: 10px 0 0;
+.article-date {
   color: var(--time);
-  font:
-    11px/13px "Miller Text",
-    Georgia,
-    serif;
+  font: 11px/13px "Miller Text", Georgia, serif;
   letter-spacing: 2px;
   text-transform: uppercase;
 }
@@ -183,10 +162,7 @@ body {
 .paragraph {
   width: 600px;
   margin: 0 auto 20px;
-  font:
-    18px/1.5 "Miller Text",
-    Georgia,
-    serif;
+  font: 18px/1.5 "Miller Text", Georgia, serif;
 }
 
 .paragraph:first-letter {
@@ -194,11 +170,93 @@ body {
   margin-bottom: -10px;
   padding: 6px 10px 0 0;
   padding-top: 9px;
-  font:
-    600 5em/0.8em "Elderkin",
-    "Arial Narrow",
-    Arial,
-    sans-serif;
+  font: 600 5em/0.8em "Elderkin", "Arial Narrow", Arial, sans-serif;
+}
+
+.nym-image {
+  width: 700px;
+  margin: 40px auto;
+}
+
+.nym-image-collection {
+  display: flex;
+  align-items: end;
+  gap: 20px;
+  width: 600px;
+}
+
+.image-container {
+  width: calc(100% - 140px);
+}
+
+.image-collection-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  row-gap: 67px;
+}
+
+.image-wrapper {
+  width: 100%;
+  cursor: zoom-in;
+}
+
+.image-collection-container .image-wrapper {
+  width: calc((330 / 700) * 100%);
+}
+
+.image-wrapper img {
+  width: 100%;
+  height: auto;
+}
+
+.nym-image-figcaption {
+  margin: 12px 0 0;
+  font: 12px/15px "Miller Text", Georgia, serif;
+  letter-spacing: 0.25px;
+  word-break: break-word;
+}
+
+.nym-image-collection .nym-image-figcaption {
+  max-width: 120px;
+}
+
+.image-zoom-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  display: none;
+  width: 100%;
+  height: 100vh;
+  opacity: 0;
+  background-color: var(--background-color);
+  transition: opacity 0.3s cubic-bezier(0.42, 0, 0.58, 1);
+}
+
+.image-zoom-overlay.forward {
+  z-index: 1000;
+  display: table;
+  opacity: 1;
+}
+
+.image-zoom-container {
+  position: fixed;
+  z-index: -1;
+  visibility: hidden;
+  transition: transform 0.3s cubic-bezier(0.42, 0, 0.58, 1);
+  transform-origin: center;
+}
+
+.image-zoom-container.forward {
+  z-index: 1002;
+  visibility: visible;
+  cursor: zoom-out;
+}
+
+.image-zoom-image {
+  width: 100%;
+  height: auto;
 }
 
 @media (hover: hover) and (pointer: fine) {
@@ -233,7 +291,7 @@ body {
   }
 
   .wrapper {
-    margin: 0;
+    margin: 0 0 40px;
     padding: 0 7vw;
   }
 
@@ -252,19 +310,26 @@ body {
   }
 
   .headline-primary {
-    font:
-      600 46px/1 "Elderkin",
-      "Arial Narrow",
-      Arial,
-      sans-serif;
+    font: 600 46px/1 "Elderkin", "Arial Narrow", Arial, sans-serif;
+  }
+
+  .article-timestamp {
+    margin: 15px 0 3px;
+    border-top: 1px solid var(--line);
+    padding: 10px 0 0;
   }
 
   .display-teaser {
-    font:
-      300 41px/42px "Miller Display",
-      Georgia,
-      serif;
+    font: 300 41px/42px "Miller Display", Georgia, serif;
     letter-spacing: -0.01em;
+  }
+
+  .nym-image {
+    width: 660px;
+  }
+
+  .nym-image-collection {
+    width: 600px;
   }
 }
 
@@ -282,21 +347,42 @@ body {
   }
 
   .headline-primary {
-    font:
-      600 42px/1 "Elderkin",
-      "Arial Narrow",
-      Arial,
-      sans-serif;
+    font: 600 42px/1 "Elderkin", "Arial Narrow", Arial, sans-serif;
   }
 
   .display-teaser {
-    font:
-      300 36px/37px "Miller Display",
-      Georgia,
-      serif;
+    font: 300 36px/37px "Miller Display", Georgia, serif;
   }
 
   .paragraph {
     width: 100%;
+  }
+
+  .nym-image {
+    width: 100%;
+    margin: 24px auto;
+  }
+
+  .nym-image-collection {
+    flex-direction: column;
+    align-items: start;
+    gap: 0;
+  }
+
+  .image-container {
+    width: 100%;
+  }
+
+  .image-collection-container {
+    row-gap: 51px;
+  }
+
+  .image-collection-container .image-wrapper {
+    width: calc((157 / 335) * 100%);
+  }
+
+  .nym-image-collection .nym-image-figcaption {
+    max-width: 100%;
+    margin: 6px 0 0;
   }
 }
