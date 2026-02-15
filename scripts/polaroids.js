@@ -1,4 +1,4 @@
-const polaroids = [
+export const polaroids = [
   ["Jessie Buckley and Paul Mescal", "Hamnet", 2],
   ["Rose Byrne", "If I Had Legs I’d Kick You", 1],
   ["Teyana Taylor", "One Battle After Another", 4],

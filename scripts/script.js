@@ -1,3 +1,5 @@
+import { polaroids } from './polaroids.js';
+
 const basicLink = "https://shoneal.github.io/vulture/images/polaroids/"; // Главная ссылка
 const header = document.querySelector(".page-header");
 const paragraph = document.querySelector(".body .paragraph");
